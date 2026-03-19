@@ -301,6 +301,54 @@ main h1 {
 }
 
 
+/* Inventory */
+
+
+#inv-display {
+  /* display: flex;
+  flex-direction: column; */
+  padding: 1rem;
+  margin: 0 auto;
+
+  border-radius: 10px;
+  background: #ececec;
+}
+
+#inv-display hr {
+  margin-top: 1rem;
+}
+
+#inv-display li {
+  list-style-type: none;
+}
+
+#inv-display li a {
+  display: flex;
+  justify-content: center;
+}
+
+#inv-display img {
+  place-self: center;
+
+  border-radius: 10px;
+  box-shadow: rgba(117, 117, 117, 0.5) 5px 2px 15px 0px;
+}
+
+.namePrice {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+ 
+  justify-content: space-between;
+  align-items: center;
+}
+
+.namePrice hr {
+  width: 100%;
+}
+
+
+
 /* Footer */
 
 
@@ -382,5 +430,34 @@ footer {
   .site-title {
     font-size: 2rem;
     text-decoration: none;
+  }
+
+  #inv-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+
+    align-items: center;
+  }
+
+  #inv-display li a {
+    display: flex;
+    justify-content: center;
+  }
+
+  #inv-display img {
+    height: 100px;
+    place-self: center;
+
+    border-radius: 10px;
+  }
+
+  .namePrice {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    text-align: center;
+
+    /* align-items: center; */
   }
 }
