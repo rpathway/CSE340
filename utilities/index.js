@@ -6,7 +6,6 @@ const Util = {}
  ************************** */
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
-  console.log(data)
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
   data.rows.forEach((row) => {
@@ -51,6 +50,43 @@ Util.buildClassificationGrid = async function(data){
     grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
   }
   return grid
+}
+
+/* **************************************
+* Build the model view HTML
+* ************************************ */
+Util.buildItemDetails = async function (data) {
+  let page
+  if(data.length > 0) {
+    const model = data[0];
+    let name = model.inv_make;
+    let year = model.inv_year;
+    let desc = model.inv_description;
+    let image = model.inv_image;
+    let price = model.inv_price;
+    let color = model.inv_color
+    let miles = model.inv_miles;
+    page = `
+      <div class="modelDetails">
+        <figure>
+          <img src="${image}" alt="Image of ${name} ${model.inv_model} on CSE Motors">
+          <figcaption>Image of ${name} ${model.inv_model} on CSE Motors</figcaption>
+        </figure>
+        <ul class="modelDetailSpecs">
+          <h2>${name} Details</h2>
+          <li><h3>Price:</h3> <span>$${new Intl.NumberFormat('en-US').format(price)}</span></li>
+          <li><h3>Description:</h3> <span>${desc}</span></li>
+          <li><h3>Color:</h3> <span>${color}</span></li>
+          <li><h3>Mileage:</h3> <span>${new Intl.NumberFormat('en-US').format(miles)}</span></li>
+          <li><h3>Year:</h3> <span>${year}</span></li>
+        </ul>
+      </div>
+    `
+  } else {
+    page = '<p class="notice">Sorry, the selected vehicle could not be found.</p>'
+  }
+
+  return page;
 }
 
 /* ****************************************

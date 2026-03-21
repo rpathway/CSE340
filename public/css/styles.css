@@ -305,8 +305,6 @@ main h1 {
 
 
 #inv-display {
-  /* display: flex;
-  flex-direction: column; */
   padding: 1rem;
   margin: 0 auto;
 
@@ -348,6 +346,55 @@ main h1 {
 }
 
 
+/* Details page */
+
+
+.modelDetails {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.modelDetails img {
+  border-radius: 10px;
+  box-shadow: rgba(117, 117, 117, 0.5) 5px 2px 15px 0px;
+}
+
+.modelDetails figcaption {
+  font-size: x-small;
+  text-align: center;
+}
+
+.btn-back {
+  display: flex;
+  padding: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.modelDetailSpecs li {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modelDetailSpecs li:nth-child(even) {
+  background-color: #cccccc;
+}
+
+.modelDetailSpecs span {
+  display: flex;
+  justify-content: end;
+
+  font-size: smaller;
+}
+
+
 
 /* Footer */
 
@@ -360,6 +407,11 @@ footer {
 
   color: #cccccc;
   background-color: #1a1a2e;
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
 }
 
 
@@ -457,7 +509,22 @@ footer {
     flex-direction: column;
     padding-bottom: 2rem;
     text-align: center;
+  }
 
-    /* align-items: center; */
+  .modelDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .modelDetails figure {
+    padding-right: 1rem;
+  }
+
+  .modelDetailSpecs li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .modelDetailSpecs li:nth-child(even) {
+    background: none;
   }
 }
