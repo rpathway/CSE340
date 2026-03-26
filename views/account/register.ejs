@@ -1,0 +1,26 @@
+<h1>Register</h1>
+<%- messages() %>
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+<div class="form-container" autocomplete="on">
+  <form action="/account/register" method="post">
+    <label for="register-firstname">First name<span class="required">*</span></label>
+    <input type="text" id="register-firstname" name="account_firstname" value="<%= locals.account_firstname %>" required>
+    <label for="register-lastname">Last name<span class="required">*</span></label>
+    <input type="text" id="register-lastname" name="account_lastname" value="<%= locals.account_lastname %>" required>
+    <label for="register-email">Email<span class="required">*</span></label>
+    <input type="email" id="register-email" name="account_email" value="<%= locals.account_email %>" required>
+    <label for="register-password">Password<span class="required">*</span></label>
+    <input type="password" id="register-password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+    <button type="button" id="view-password" class="view-password" title="Show/Hide password">👁️</button>
+    <div class="password-requirements">
+      <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
+    </div>
+    <input type="submit" value="Register">
+  </form>
+</div>

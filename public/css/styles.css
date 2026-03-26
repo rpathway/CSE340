@@ -395,6 +395,91 @@ main h1 {
 }
 
 
+/* Login page */
+
+.required {
+  color: rgb(190, 0, 0);
+}
+
+input:required:invalid, input:focus:invalid {
+  border-color: rgb(190, 0, 0);
+}
+
+input:required:valid {
+  border-color: rgb(0, 204, 0);
+}
+
+.password-requirements {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: small;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 300px;
+
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: #ececec;
+}
+
+.form-container p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form-container a {
+  text-decoration: underline;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input[type="submit"] {
+  display: flex;
+  padding: 0.4rem;
+  margin-top: 1rem;
+  width: 100px;
+
+  place-self: center;
+
+  border-radius: 1rem;
+
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  color: white;
+  background-color: #17a9d4;
+}
+
+form input {
+  padding: 0.4rem;
+  border-radius: 5px;
+}
+
+.view-password {
+  display: flex;
+  position: relative;
+  padding: 5px;
+  place-self: end;
+  top: -30px;
+
+  border: none;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.02);
+
+  cursor: pointer;
+
+  opacity: 0.7;
+}
+
 
 /* Footer */
 
