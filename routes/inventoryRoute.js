@@ -8,6 +8,18 @@ const utilities = require('../utilities')
 // Management view
 router.get("/", utilities.handleErrors(invController.buildManagement));
 
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
+
+// Route to build edit inventory view
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView));
+
+// Route to update edited inventory item
+router.post("/update/",
+  invValidate.inventoryRules(),
+  invValidate.checkUpdateData,
+  utilities.handleErrors(invController.updateInventory)
+)
+
 // Add classification
 router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
 router.post(

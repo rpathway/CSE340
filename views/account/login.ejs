@@ -2,10 +2,10 @@
 <%- messages() %>
 <% if (errors) { %>
   <ul class="notice">
- <% errors.array().forEach(error => { %>
-   <li><%= error.msg %></li>
-<%  }) %>
- </ul>
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
 <% } %>
 <div class="form-container" autocomplete="on">
   <form id="loginForm" action="/account/login" method="post">
@@ -18,5 +18,5 @@
     </div>
     <input type="submit" value="login">
   </form>
-  <p>No account? <a href="/account/registration" title="Sign up for an account">Sign-up</a></p>
+  <p>No account? <a href="/account/register" title="Sign up for an account">Sign-up</a></p>
 </div>

@@ -8,6 +8,7 @@
 const express = require("express")
 const session = require("express-session")
 const expressLayouts = require('express-ejs-layouts')
+const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
 const env = require("dotenv").config()
 const app = express()
@@ -48,6 +49,8 @@ app.use(function(req, res, next){
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * View Engine and Templates

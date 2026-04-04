@@ -395,6 +395,63 @@ main h1 {
 }
 
 
+/* Inventory management page */
+
+#classificationList {
+  display: flex;
+  padding: 0.5rem;
+  margin: 1rem;
+
+  border-radius: 1rem;
+}
+
+#inventoryDisplay {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid black;
+  border-radius: 1rem;
+
+  & thead {
+    padding: 0.5rem;
+    border-radius: 1rem 1rem 0 0;
+    background-color: #dadadacc;
+  }
+
+  & tbody tr {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0.5rem;
+
+    border-top: 1px solid black;
+
+    & td:first-child {
+      text-align: left;
+    }
+    
+    & td:nth-child(2) {
+      place-self: center;
+    }
+    
+    & td:last-child {
+      text-align: right;
+
+      a {
+        color: rgb(204, 0, 0);
+      }
+    }
+  }
+
+  & tr:nth-child(even) {
+    background: #dadadacc;
+  }
+
+  & tr:last-child {
+    border-radius: 0 0 1rem 1rem;
+  }
+}
+
+
 /* Login page */
 
 .required {

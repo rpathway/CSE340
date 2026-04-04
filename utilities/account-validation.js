@@ -92,20 +92,15 @@ validate.checkRegData = async (req, res, next) => {
 }
 
 validate.checkLoginData = async (req, res, next) => {
-  const { account_email, account_password } = req.body;
-  const errors = validationResult(req);
-  const validCreds = await accountModel.checkLoginCredentials(account_email, account_password);
+  let errors = []
+  errors = validationResult(req);
 
-  if (!errors.isEmpty() || !validCreds) {
+  if (!errors.isEmpty()) {
     let nav = await utilities.getNav();
-    const errorArray = errors.array();
-    if (!validCreds) errorArray.push({ msg: "Invalid email or password" });
-
     res.render("account/login", {
-      errors: errorArray,
+      errors,
       title: "Login",
       nav,
-      account_email,
     });
     return;
   }
