@@ -20,6 +20,7 @@ const utilities = require('./utilities/');
 const errorRoute = require('./routes/errorRoute');
 const accountRoute = require('./routes/accountRoute');
 const detailsRoute = require('./routes/detailsRoute')
+const wishlistRoute = require('./routes/wishlistRoute');
 const inventoryRoute = require('./routes/inventoryRoute');
 
 const baseController = require("./controllers/baseController")
@@ -67,6 +68,8 @@ app.use(errorRoute)
 app.get('/', utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 app.use('/inv', detailsRoute)
+app.use('/wishlist', wishlistRoute)
+app.use('/account/wishlist', wishlistRoute)
 app.use('/account', (req, res, next) => {
   console.log('Account route hit')
   next()

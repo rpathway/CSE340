@@ -12,7 +12,8 @@ modelCont.buildByInvId = async function (req, res, next) {
   res.render('./inventory/details', {
     title: className,
     nav,
-    details
+    details,
+    inv_id: data[0].inv_id
   })
 }
 
